@@ -1,6 +1,6 @@
 package main;
 
-public class Employee {
+public class Employee extends AbstractAccountActions {
 
 	// Fields Java classes slide 14
 	// Encapsulation slide 3
@@ -10,6 +10,7 @@ public class Employee {
 	private String lastName;
 	private long empl_id;
 	private String jobTitle;
+	private float totalAmount;
 	// protected
 	
 	// Default Constructor
@@ -74,13 +75,23 @@ public class Employee {
 	public String toString() {
 		return "Employee ["
 				+ "firstName=" + firstName 
-				+ ", lastName=" + lastName 
+				+ ", lastName="+ lastName 
 				+ ", empl_id=" + empl_id 
-				+ ", jobTitle=" + jobTitle + "]";
+				+ ", jobTitle="+ jobTitle + "]";
 	}
 	
 	// other methods
-	
+	@Override
+	float withdraw(int amount, int withdrawAmount) {
+		totalAmount = amount - withdrawAmount;
+		return totalAmount;
+	}
+
+	@Override
+	float deposit(int amount, int depositAmount) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }
