@@ -1,8 +1,11 @@
 package main;
 
+import java.util.Scanner;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BankingException {
+		
 		
 		// Object & memory slide 14, 10, 8, 25
 		// Object-Oriented Programming static 7
@@ -29,24 +32,39 @@ public class Main {
 //		System.out.println(managerOne.getEmpl_id() + managerOne.getFirstName());
 		
 		Box<Integer> intBox = new Box<Integer>();
-		intBox.add(234);
-		intBox.add(943);
-		intBox.add(865);
-		intBox.add(179);
+//		intBox.add(234);
+//		intBox.add(943);
+//		intBox.add(865);
+//		intBox.add(179);
 		
-		System.out.println(intBox.get());
+		Scanner userInput = new Scanner(System.in);
+		
+		System.out.println("Enter employee id number:");
+		if (userInput.hasNextLong()) {
+			empOne.setEmpl_id(userInput.nextLong());
+			System.out.println(empOne.getFirstName() + " " + empOne.getLastName() + "'s new account id is " 
+			+ empOne.getEmpl_id());
+		} else {
+			userInput.close();
+			throw new BankingException("Please enter a valid employee id number");
+		}
+		
+		userInput.close();
+		
+//		System.out.println(intBox.get());
 		
 		Box<String> strBox = new Box<String>();
 		strBox.add("Hi");
 		strBox.add("Hello");
 		
-		System.out.println(strBox.get());
+//		System.out.println(strBox.get());
 		
 		String str = "CHECKING";
 		Accounts accOne = new Accounts(AccountTypes.valueOf(str));
-		accOne.chooseAccount();
+//		accOne.chooseAccount();
 		
-		ExampleClass.NestedClass.hello();
+//		ExampleClass.NestedClass.hello();
+		
 		
 		
 	}

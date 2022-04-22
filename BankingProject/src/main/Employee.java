@@ -89,8 +89,8 @@ public class Employee extends AbstractAccountActions {
 
 	@Override
 	float deposit(int amount, int depositAmount) {
-		// TODO Auto-generated method stub
-		return 0;
+		totalAmount = amount + depositAmount;
+		return totalAmount;
 	}
 	
 	
