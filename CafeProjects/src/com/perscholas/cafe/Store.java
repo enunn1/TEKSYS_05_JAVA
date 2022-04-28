@@ -17,4 +17,16 @@ public class Store {
 	public ArrayList<Product> getInventory() {
 		return inventory;
 	}
+	
+	public boolean add(Product p) {
+		return inventory.add(p);
+	}
+	
+	public int numProducts() {
+		return inventory.size();
+	}
+	
+	public Product get(int index) {
+		return inventory.get(index);
+	}
 }

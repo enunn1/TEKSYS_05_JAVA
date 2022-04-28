@@ -66,13 +66,20 @@ public class Coffee extends Product {
 
 	@Override
 	public void printOptions() {
-		System.out.println("Item: " + name + " Price: " + price + " Qty: " + quantity + " Subtotal: " 
-				+ this.calculateProductTotal());
+		System.out.format("Item:\t%s\tPrice:\t$%.2f\tQty: %d\tSubtotal: $%.2f\n", 
+				name, price, quantity, this.calculateProductTotal());
 		
 		String hasMilk = this.hasMilk() ? "Yes": "No";
 		String hasSugar = this.hasSugar() ? "Yes" : "No";
 		
-		System.out.println("Sugar: " + hasSugar + " Milk: " + hasMilk);
+		System.out.println("\tSugar: " + hasSugar + "\tMilk: " + hasMilk);
+	}
+	
+	@Override
+	public void addToCart(ShoppingCart cart) {
+		Product p = new Coffee(name, price, description, milk, sugar);
+		p.quantity = this.quantity;
+		cart.add(p);
 	}
 
 }

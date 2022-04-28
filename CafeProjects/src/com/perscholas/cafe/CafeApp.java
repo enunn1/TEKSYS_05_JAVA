@@ -9,39 +9,34 @@ public class CafeApp {
 		Scanner userInput = new Scanner(System.in);
 		
 		ShoppingCart shoppingCart = new ShoppingCart();
+		Store cafe = new Store();
+		
+		cafe.add(new Coffee("Coffee", 2.95, "Coffee", false, false));
+		cafe.add(new Cappuccino("Cappuccino", 4.45, "Cappuccino", false, false));
+		cafe.add(new Espresso("Espresso", 3.95, "Espresso", false, false));
 		
 		int selection; 
+
 		do {
 			System.out.println("Please select from the following menu:");
-			System.out.println("1: Coffee");
-			System.out.println("2: Cappuccino");
-			System.out.println("3: Espresso");
-			System.out.println("4: Check Out");
-			selection = userInput.nextInt();
-			switch (selection) {
-			case 1:
-				Product coffee = new Coffee("Coffee", 2.95, "Coffee", false, false);
-				coffee.addOptions();
-				shoppingCart.add(coffee);
-				break;
-			case 2:
-				Product cappuccino = new Cappuccino("Cappuccino", 4.45, "Cappuccino", false, false);
-				cappuccino.addOptions();
-				shoppingCart.add(cappuccino);
-				break;
-			case 3:
-				Product espresso = new Espresso("Espresso", 3.95, "Espresso", false, false);
-				espresso.addOptions();
-				shoppingCart.add(espresso);
-				break;
-			case 4: 
-				System.out.println("Proceed to checkout");
-				break;
-			default:
-				System.out.println("Invalid input");
-				break;
+			for (int i = 0; i <= cafe.numProducts(); i++) {
+				if (i == cafe.numProducts()) {
+					System.out.println((i+1) + ": Check Out");
+				} else {
+					System.out.println((i+1) + ": " + cafe.get(i).getName());
+				}
 			}
-		} while (selection != 4);
+			selection = userInput.nextInt();
+			if (selection == (cafe.numProducts() + 1)) {
+				System.out.println("Proceed to checkout");
+			} else if (selection > 0 && selection < (cafe.numProducts() + 1)) {
+				Product p = cafe.get(selection - 1);
+				p.addOptions();
+				p.addToCart(shoppingCart);
+			} else {
+				System.out.println("Not a valid option");
+			}
+		} while (selection != (cafe.numProducts()+1));
 		
 		double subtotal = 0;
 		for (Product p: shoppingCart.getCartItems()) {

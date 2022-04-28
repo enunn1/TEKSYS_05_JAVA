@@ -53,5 +53,7 @@ public abstract class Product {
 	public abstract void addOptions();
 	
 	public abstract void printOptions();
+	
+	public abstract void addToCart(ShoppingCart cart);
 
 }

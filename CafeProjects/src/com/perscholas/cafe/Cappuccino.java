@@ -18,7 +18,13 @@ public class Cappuccino extends Product {
 		this.peppermint = peppermint;
 		this.whippedCream = whippedCream;
 	}
-
+	
+	public Cappuccino(Cappuccino c) {
+		super(c.name, c.price, c.description);
+		this.peppermint = c.peppermint;
+		this.whippedCream = c.whippedCream;
+	}
+	
 	public boolean hasPeppermint() {
 		return peppermint;
 	}
@@ -47,7 +53,7 @@ public class Cappuccino extends Product {
 	public void addOptions() {
 		Scanner options = new Scanner(System.in);
 
-		System.out.println("How many espressos do you want?");
+		System.out.println("How many cappuccinos do you want?");
 		this.quantity = options.nextInt();
 		options.nextLine();
 		
@@ -68,14 +74,21 @@ public class Cappuccino extends Product {
 
 	@Override
 	public void printOptions() {
-		System.out.println("Item: " + name + " Price: " + price + " Qty: " + quantity + " Subtotal: " 
-				+ this.calculateProductTotal());
+		System.out.format("Item:\t%s\tPrice:\t$%.2f\tQty: %d\tSubtotal: $%.2f\n", 
+				name, price, quantity, this.calculateProductTotal());
 		
-		String hasPeppermint = this.hasPeppermint() ? "Yes (Add $2)": "No";
-		String hasWhippedCream = this.hasWhippedCream() ? "Yes (Add $1)" : "No";
+		String hasPeppermint = this.hasPeppermint() ? "Yes (Add $"+((int) 2*quantity)+")": "No";
+		String hasWhippedCream = this.hasWhippedCream() ? "Yes (Add $"+((int) quantity)+")" : "No";
 		
-		System.out.println("Peppermint: " + hasPeppermint + " Whipped Cream: " + hasWhippedCream);
+		System.out.println("\tPeppermint: " + hasPeppermint + "\tWhipped Cream: " + hasWhippedCream);
 		
+	}
+	
+	@Override
+	public void addToCart(ShoppingCart cart) {
+		Product p = new Cappuccino(this.name, this.price, this.description, this.peppermint, this.whippedCream);
+		p.quantity = this.quantity;
+		cart.add(p);
 	}
 
 }
