@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import entity.EmployeeEntity;
+import entity.User;
 
 public class FindingUser {
 
@@ -17,8 +17,8 @@ public class FindingUser {
 		Transaction tx = session.beginTransaction();
 	      
 	    int USER_ID = 2;
-	    EmployeeEntity employee = session.load(EmployeeEntity.class, USER_ID);
-	    System.out.println("Fullname: " + employee.getFirstName());
+	    User employee = session.load(User.class, USER_ID);
+	    System.out.println("Fullname: " + employee.getFullName());
 	    System.out.println("Email: " + employee.getEmail());
 	    System.out.println("password: " + employee.getPassword());
 

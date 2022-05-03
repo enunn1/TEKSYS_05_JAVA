@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import entity.EmployeeEntity;
+import entity.User;
 
 public class UpdatingUser {
 
@@ -15,7 +15,7 @@ public class UpdatingUser {
 
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
-		EmployeeEntity u = new EmployeeEntity();
+		User u = new User();
 		u.setEmp_id(3);
 		u.setEmail("mhaseeb@perscholas");
 		u.setFullName("M haseeb");

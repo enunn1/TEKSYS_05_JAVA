@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import entity.EmployeeEntity;
+import entity.User;
 
 public class CreateUser {
 
@@ -15,7 +15,7 @@ public class CreateUser {
     	Session session = factory.openSession();
     	
     	Transaction t = session.beginTransaction();   
-    	EmployeeEntity empOne = new EmployeeEntity();
+    	User empOne = new User();
     	empOne.setEmail("haseeb@gmail.com");
     	empOne.setFullName("Moh Haseeb");
     	empOne.setPassword("has123");
@@ -23,7 +23,7 @@ public class CreateUser {
     	empOne.setAge(20);
     	empOne.setCity("NYC");
     	
-    	EmployeeEntity empTwo = new EmployeeEntity();
+    	User empTwo = new User();
     	empTwo.setEmail("James@gmail.com");
     	empTwo.setFullName("James Santana");
     	empTwo.setPassword("James123");
@@ -31,7 +31,7 @@ public class CreateUser {
     	empTwo.setAge(25);
     	empTwo.setCity("Dallas");
     	
-    	EmployeeEntity empThree = new EmployeeEntity();
+    	User empThree = new User();
     	empThree.setEmail("Shahparan@gmail.com");
     	empThree.setFullName("AH Shahparan");
     	empThree.setPassword("Shahparan123");
@@ -40,8 +40,8 @@ public class CreateUser {
     	empThree.setCity("Chicago");
     	
   /*========= We can pass value/data by using constructor =========*/
-    	EmployeeEntity empfour = new EmployeeEntity("Christ", "christ@gmail.com",  "147852", 35, 35000.3,"NJ");
-    	EmployeeEntity empfive = new EmployeeEntity("Sid", "Sid", "s258", 29, 4000.36, "LA");
+    	User empfour = new User("Christ", "christ@gmail.com",  "147852", 35, 35000.3,"NJ");
+    	User empfive = new User("Sid", "Sid", "s258", 29, 4000.36, "LA");
     	Integer emp_id = null;
     	session.save(empOne); 
     	session.save(empTwo); 

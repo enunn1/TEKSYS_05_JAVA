@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import entity.EmployeeEntity;
+import entity.User;
 
 public class DeletingUser {
 
@@ -14,7 +14,7 @@ public class DeletingUser {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
-		EmployeeEntity u = new EmployeeEntity();
+		User u = new User();
 		u.setEmp_id(3);
 		session.delete(u);
 		tx.commit();

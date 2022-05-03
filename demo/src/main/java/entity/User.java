@@ -8,28 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employee")
-public class EmployeeEntity {
+@Table(name = "user")
+public class User {
 	@Column(name = "emp_id")
 	// column id, generated value
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer emp_id;
 
-	private String firstName;
+	private String fullName;
 	private String email;
+	private String password;
+	private int age;
 	private double salary;
 	private String city;
 
-	public EmployeeEntity() {
+	public User() {
 
 	}
 
-	public EmployeeEntity(String firstName, String email, double salary,
+	public User(String fullName, String email, String password, int age, double salary,
 			String city) {
 		//this.emp_id = emp_id;
-		this.firstName = firstName;
+		this.fullName = fullName;
 		this.email = email;
+		this.setPassword(password);
+		this.age = age;
 		this.salary = salary;
 		this.city = city;
 	}
@@ -42,12 +46,12 @@ public class EmployeeEntity {
 		this.emp_id = emp_id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setfirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getEmail() {
@@ -56,6 +60,22 @@ public class EmployeeEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public double getSalary() {
@@ -76,8 +96,11 @@ public class EmployeeEntity {
 
 	@Override
 	public String toString() {
-		return "EmployeeEntity [emp_id=" + emp_id + ", firstName=" + firstName + ", email=" + email + 
-				", salary=" + salary + ", city=" + city + "]";
+		return "User [emp_id=" + emp_id + ", fullName=" + fullName + ", email=" + email + ", password=" + password
+				+ ", age=" + age + ", salary=" + salary + ", city=" + city + "]";
 	}
 
+	
+
 }
+

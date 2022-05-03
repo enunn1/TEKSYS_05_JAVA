@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import entity.EmployeeEntity;
+import entity.User;
 
 public class CreateUserTable {
 
@@ -16,7 +16,7 @@ public class CreateUserTable {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		
-		EmployeeEntity employeeEntity = new EmployeeEntity();
+		User user = new User();
 		
 		t.commit();
 		
