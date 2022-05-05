@@ -20,6 +20,7 @@
 		<!-- Mapping entity file -->
 		<mapping class="entity.DepartmentEntity" />
 		<mapping class="entity.TeacherEntity" />
+		<mapping class="entity.CohortEntity" />
 	
 	</session-factory>
 </hibernate-configuration>  
