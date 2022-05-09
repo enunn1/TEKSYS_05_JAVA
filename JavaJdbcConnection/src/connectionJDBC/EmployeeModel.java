@@ -67,5 +67,15 @@ public class EmployeeModel {
 				" Job title: " + getJobTitle()+
 				" Extension: " + getExtension();
 	}
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj.getClass().getSimpleName() != "EmployeeModel") return false;
+		EmployeeModel em = (EmployeeModel) obj;
+		return (this.getEmployeeNumber() == em.getEmployeeNumber() &&
+				this.getFirstName() == em.getFirstName() &&
+				this.getLastName() == em.getLastName() &&
+				this.getJobTitle() == em.getJobTitle() &&
+				this.getExtension() == em.getExtension());
+	}
 }

@@ -74,24 +74,5 @@ public class EmployeeDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	
-//	public void addEmployee(EmployeeModel employee) {
-//		try {
-//			String queryString = "INSERT INTO employees (employeeNumber, firstName, lastName, extension, jobTitle, email)"
-//					+ " VALUES (?, ?, ?, ?, ?, ?)";
-//			connection = getConnection();
-//			ps = connection.prepareStatement(queryString);
-//			ps.setInt(1, employee.getEmployeeNumber());
-//			ps.setString(2, employee.getFirstName());
-//			ps.setString(3, employee.getLastName());
-//			ps.setString(4, employee.getExtension());
-//			ps.setString(5, employee.getJobTitle());
-//			ps.setString(6, "");
-//			ps.executeUpdate();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-	
+	}	
 }
