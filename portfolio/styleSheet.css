@@ -1,0 +1,50 @@
+body {
+    background-color: #141414;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.main_container {
+    background-color: #1b1b1b;
+    height: 100%;
+    width: 50%;
+    margin: 0px auto;
+    left: 25%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile {
+    height: 600 px;
+    width: 60%;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+#title {
+    color: steelblue;
+}
+
+.info {
+    height: 150 px;
+    width: 400px;
+
+} 
+
+#profile_pic {
+    height: 100px;
+    width: 100px;
+}
+
+.bio {
+    color:gray
+}
+
+th {
+    text-align: right;
+}
+
+td {
+    color: gray;
+}
