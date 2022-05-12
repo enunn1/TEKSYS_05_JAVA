@@ -15,30 +15,50 @@ body {
     flex-direction: row;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
 .profile {
-    height: 600 px;
     width: 60%;
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     margin: 20px;
 }
 
+.name_title {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+
+#name {
+    font-size: xx-large;
+    font-weight: 700;
+}
+
 #title {
+    font-size: large;
+    font-weight: 400;
     color: steelblue;
 }
 
 .info {
-    height: 150 px;
-    width: 400px;
-
+    width: 40%;
+    margin: 40px 20px;
 } 
 
 #profile_pic {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
+    padding: 40px;
 }
 
 .bio {
-    color:gray
+    color:gray;
+    /* margin: 0px auto; */
 }
 
 th {
