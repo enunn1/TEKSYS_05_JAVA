@@ -52,7 +52,7 @@ body {
   width: 150px;
   padding: 0px 40px;
 }
-p {
+p, .exp_title {
   color: gray;
 }
 .bio {
@@ -98,4 +98,5 @@ aside {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 20px;
 }
