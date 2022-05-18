@@ -96,12 +96,12 @@ submitButton2.addEventListener("click", sendMessageToBox1);
 
 messages1.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    sendMessageToBox2();
+    sendMessageToBox1();
   }
 });
 
 messages2.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    sendMessageToBox1();
+    sendMessageToBox2();
   }
 });
