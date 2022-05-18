@@ -101,6 +101,36 @@ aside {
     height: 20px;
 }
 
+.bar {
+  height: 20px;
+  width: 60%;
+  background-color: #383838;
+}
+
+.blue {
+  background-color: rgb(44,122,159);
+}
+
+.light-blue {
+  background-color: rgb(70,165,211);
+}
+
+.green {
+  background-color: rgb(56, 155, 62);
+}
+
+.yellow {
+  background-color: rgb(168, 172, 56);
+}
+
+.red {
+  background-color: rgb(209, 23, 23);
+}
+
+.ninety {
+  width: 90%;
+}
+
 @media screen and (max-width:1000px) {
   .main_container {
     width: 100%;
