@@ -1,13 +1,17 @@
 function calculate() {
   let input = document.getElementById("input");
-  let arr = input.ariaValueMax.split(" ");
-  let total = 0;
-  for (item of arr) {
-    console.log(item);
+  let arr = input.value.split(/[\n, ]+/);
+  let total = Number(arr[0]);
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === '+') {
+      total += Number(arr[i+1]);
+    } else if (arr[i] === '-') {
+      total -= Number(arr[i+1]);
+    }
   }
 
   let result = document.getElementById("result");
-  result.textContent = mep;
+  result.textContent = total;
 }
 
 let btnOne = document.getElementById("btnOne");

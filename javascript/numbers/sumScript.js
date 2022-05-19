@@ -7,4 +7,4 @@ for (number of arr) {
 }
 
 let result = document.getElementById('sum');
-result.textContent = sum;
+result.textContent = "The sum is " + sum;
