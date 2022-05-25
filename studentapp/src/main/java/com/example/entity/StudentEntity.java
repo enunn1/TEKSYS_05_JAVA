@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 // Object or POJO help create our database tables
 // @Table
@@ -14,6 +15,7 @@ import lombok.Data;
 //@EqualsAndHashCode
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class StudentEntity {
 

@@ -4,6 +4,7 @@ import com.example.entity.StudentEntity;
 import com.example.view.StudentView;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 public class StudentController {
@@ -15,10 +16,10 @@ public class StudentController {
 	private StudentView view;
 
 	// constructor
-	public StudentController(StudentEntity model, StudentView view) {
-		this.model = model;
-		this.view = view;
-	}
+//	public StudentController(StudentEntity model, StudentView view) {
+//		this.model = model;
+//		this.view = view;
+//	}
 
 	// control the getters and setter from our model
 	public String getStudentName() {
