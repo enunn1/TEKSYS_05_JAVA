@@ -1,64 +1,40 @@
 package com.example.managementproj.service;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.managementproj.entity.UserEntity;
+import com.example.managementproj.entity.UserInfo;
 import com.example.managementproj.repository.UserRepository;
 
 @Service
-public class UserService implements UserServiceImpl {
-	
+public class UserService implements UserServiceIMPL {
+
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Override
-	public List<UserEntity> getAllUsers() {
-		return userRepository.findAll();
-	}
-
-	@Override
-	public List<UserEntity> getUserByUsername(String user) {
-		return userRepository.findByUserName(user);
-	}
-
-	@Override
-	public Optional<UserEntity> getUsernameById(long id) {
-		return userRepository.findById(id);
-	}
-
-	@Override
-	public void updateUser(UserEntity user) {
-		userRepository.save(user);
+	public List<UserInfo> getUsers() {
+		return userRepository.findAllByActiveOrderByIdDesc(true);
 	}
 	
 	@Override
-	public void addUser(UserEntity userEntity) {
-		userRepository.save(userEntity);
+	public UserInfo getUser(Integer id) throws NotFoundException {
+		return userRepository.findByIdAndActive(id, true).orElseThrow(ChangeSetPersister.NotFoundException::new);
 	}
 
 	@Override
-	public void addUser(String username, String desc, Date targetDate) {
-		userRepository.save(new UserEntity(username, desc, targetDate));
+	public UserInfo updateUser(Integer id, UserInfo user) throws NotFoundException {
+		UserInfo userFromDB = getUser(id);
+		userFromDB.setFirstName(user.getFirstName());
+		userFromDB.setLastName(user.getLastName());
+		userFromDB.setActive(user.isActive());
+		return userRepository.save(userFromDB);
 	}
 
 	@Override
-	public void deleteUser(long id) {
-		Optional<UserEntity> user = userRepository.findById(id);
-		if (user.isPresent()) {
-			userRepository.delete(user.get());
-		}
+	public UserInfo createUser(UserInfo userEntity) {
+		return userRepository.save(userEntity);
 	}
-
-	@Override
-	public void saveUser(UserEntity user) {
-		userRepository.save(user);
-	}
-
-	
-
 }

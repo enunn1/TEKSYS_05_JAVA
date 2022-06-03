@@ -1,14 +1,15 @@
 package com.example.managementproj.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Query;
 
-import com.example.managementproj.entity.UserEntity;
+import com.example.managementproj.entity.UserInfo;
 
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+public interface UserRepository extends JpaRepository <UserInfo, Long> {
+    List<UserInfo> findAllByActiveOrderByIdDesc(boolean active);
 
-	//@Query("Select user from userTable")
-	List<UserEntity> findByUserName(String user);
+    Optional<UserInfo> findByIdAndActive(Integer id, boolean active);
 }
